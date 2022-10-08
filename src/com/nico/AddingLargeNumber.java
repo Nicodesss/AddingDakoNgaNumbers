@@ -9,9 +9,9 @@ import java.util.Scanner;
 import java.util.Stack;
 class AddingLargeNumbers{
     static BigInteger x,y;
-    static Stack<BigInteger> cases = new Stack<>();
+    static Stack<BigInteger> shesh = new Stack<>();
     public static void main(String[]args){
-        add(cases,x,y);
+        add(shesh,x,y);
     }
     static void add(Stack print, BigInteger firstNum, BigInteger secondNum){
         Scanner read = new Scanner(System.in);
