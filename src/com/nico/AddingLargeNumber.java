@@ -8,12 +8,12 @@ import java.math.BigInteger;
 import java.util.Scanner;
 import java.util.Stack;
 class AddingLargeNumbers{
-    static BigInteger bigInteger,numberOne,numberTwo;
+    static BigInteger x,y;
+    static Stack<BigInteger> cases = new Stack<>();
     public static void main(String[]args){
-        add();
+        add(cases,x,y);
     }
-    static void add(){
-        Stack<BigInteger> stack = new Stack<>();
+    static void add(Stack print, BigInteger firstNum, BigInteger secondNum){
         Scanner read = new Scanner(System.in);
         String x,y;
         int testCase = read.nextInt();
@@ -22,14 +22,14 @@ class AddingLargeNumbers{
         while (testCase > n){
             x = read.next();
             y = read.next();
+            firstNum = new BigInteger(x);
+            secondNum = new BigInteger(y);
+            print.add(firstNum.add(secondNum));
 
-            numberOne = new BigInteger(x);
-            numberTwo = new BigInteger(y);
-            stack.push(bigInteger = numberOne.add(numberTwo));
             n++;
         }
         for (int i = 0; i < testCase; i++) {
-            System.out.println("Case #"+ (i+1) +": "+ stack.get(i));
+            System.out.println("Case #"+ (i+1) +": "+ print.get(i));
         }
     }
 }
