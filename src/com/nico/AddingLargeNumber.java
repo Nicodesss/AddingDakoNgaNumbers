@@ -2,6 +2,7 @@ package com.nico;
 import java.math.BigInteger;
 import java.util.function.BiFunction;
 import java.util.*;
+import java.util.stream.IntStream;
 class AddingLargeNumbers {
     public static void main(String[] args) {
         ArrayList<BigInteger> test = new ArrayList<>();
@@ -12,8 +13,6 @@ class AddingLargeNumbers {
             test.add(adds.apply(read.nextBigInteger(), read.nextBigInteger()));
             nCases--;
         }
-        for (int i = 0; i < test.size(); i++) {
-            System.out.println("Case #"+ (i+1) + ": "+ test.get(i));
-        }
+        IntStream.range(0, test.size()).forEach(number -> System.out.println("Case #" + (1+ number) + ":" + test.get(number)));
     }
 }
