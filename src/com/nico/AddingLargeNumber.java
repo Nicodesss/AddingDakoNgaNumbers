@@ -1,32 +1,19 @@
-/*
-EDUARDO DOMINICO LLOSA
-Midterm Exam Part II: Programming Problem 1
-CC 13.1 B - DATA STRUCTURES AND ALGORITHMS
- */
 package com.nico;
 import java.math.BigInteger;
-import java.util.Scanner;
-import java.util.Stack;
-class AddingLargeNumbers{
-    static BigInteger x,y;
-    static Stack<BigInteger> cases = new Stack<>();
-    public static void main(String[]args){
-        add(cases,x,y);}
-    static void add(Stack print, BigInteger firstNum, BigInteger secondNum){
+import java.util.function.BiFunction;
+import java.util.*;
+class AddingLargeNumbers {
+    public static void main(String[] args) {
+        ArrayList<BigInteger> test = new ArrayList<>();
         Scanner read = new Scanner(System.in);
-        String x,y;
-        int testCase = read.nextInt();
-        int n = 0;
-        while (testCase > n){
-            x = read.next();
-            y = read.next();
-            firstNum = new BigInteger(x);
-            secondNum = new BigInteger(y);
-            print.add(firstNum.add(secondNum));
-            n++;
+        BiFunction<BigInteger, BigInteger, BigInteger> adds = BigInteger::add;
+        int nCases = read.nextInt();
+        while(nCases > 0){
+            test.add(adds.apply(read.nextBigInteger(), read.nextBigInteger()));
+            nCases--;
         }
-            for (int i = 0; i < testCase; i++) {
-            System.out.println("Case #"+ (i+1) +": "+ print.get(i));
+        for (int i = 0; i < test.size(); i++) {
+            System.out.println("Case #"+ (i+1) + ": "+ test.get(i));
         }
     }
 }
